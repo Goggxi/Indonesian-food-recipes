@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:indonesian_food_recipes/Splash.dart';
 
-void main() {
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
+
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Food Recipes',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.deepOrange,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Splash(),
+      routes: <String, WidgetBuilder>{
+        '/home': (BuildContext context) =>
+            MyHomePage(title: 'Indonesian Food Recipes'),
+      },
     );
   }
 }
