@@ -1,5 +1,8 @@
+import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:indonesian_food_recipes/Splash.dart';
+import 'package:indonesian_food_recipes/pages/AboutPage.dart';
+import 'package:indonesian_food_recipes/pages/HomePage.dart';
 
 void main() => runApp(MyApp());
 
@@ -10,62 +13,81 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Food Recipes',
-      theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
       home: Splash(),
       routes: <String, WidgetBuilder>{
         '/home': (BuildContext context) =>
-            MyHomePage(title: 'Indonesian Food Recipes'),
+            MyApps(),
       },
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
+class MyApps extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MyAppsState createState() => _MyAppsState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class _MyAppsState extends State<MyApps> {
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
+  //State class
+  int pageIndex = 0;
+
+  //All the Pages
+  final HomePage _homePage = HomePage();
+  final AboutPage _aboutPage = new AboutPage();
+
+  Widget _showPage = new HomePage();
+
+  Widget _pageChooser(int page){
+    switch(page){
+      case 0 :
+        return _homePage;
+        break;
+      case 1 :
+        return _aboutPage;
+        break;
+      default:
+        return new Container(
+          child: new Center(
+            child: Text('Page Not Found'),
+          ),
+        );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
+    return MaterialApp(
+      theme: ThemeData(
+        primarySwatch: Colors.deepOrange,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Indonesian Food Recipes'),
+        ),
+        body: Container(
+          child: Center(
+            child: _showPage,
+          ),
+        ),
+        bottomNavigationBar: CurvedNavigationBar(
+          items: <Widget>[
+          Icon(Icons.home_filled, size: 30, color: Colors.white),
+          Icon(Icons.person_rounded, size: 30, color: Colors.white),
+        ],
+        animationDuration: Duration(milliseconds: 100),
+        color: Colors.deepOrange[400],
+        height: 60,
+        backgroundColor: Colors.transparent,
+          onTap: (int tap) {
+            setState(() {
+              _showPage = _pageChooser(tap);
+            });
+          },
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
+
