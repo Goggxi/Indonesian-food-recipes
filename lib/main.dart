@@ -12,7 +12,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Food Recipes',
       home: Splash(),
       routes: <String, WidgetBuilder>{
         '/home': (BuildContext context) =>
@@ -58,14 +57,8 @@ class _MyAppsState extends State<MyApps> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.deepOrange,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Indonesian Food Recipes'),
-        ),
+        // extendBody: true,
         body: Container(
           child: Center(
             child: _showPage,
@@ -76,9 +69,9 @@ class _MyAppsState extends State<MyApps> {
           Icon(Icons.home_filled, size: 30, color: Colors.white),
           Icon(Icons.person_rounded, size: 30, color: Colors.white),
         ],
-        animationDuration: Duration(milliseconds: 100),
-        color: Colors.deepOrange[400],
-        height: 60,
+        animationDuration: Duration(milliseconds: 120),
+        color: Colors.deepOrange,
+        height: 50,
         backgroundColor: Colors.transparent,
           onTap: (int tap) {
             setState(() {
