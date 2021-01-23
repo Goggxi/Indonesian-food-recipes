@@ -1,6 +1,20 @@
 # indonesian_food_recipes
 
-Submission Dicoding
+## Deskripsi
+
+Project Ini Untuk submission kelas [__Dicoding - Belajar Membuat Aplikasi Flutter untuk Pemula__](https://www.dicoding.com/academies/159).
+
+Repository ini berisi source code submission (FINAL).
+
+- [x] Terdapat penggunaan Stateless Widget. Misalnya untuk menampilkan Row atau Column.
+- [x] Terdapat penggunaan Stateful Widget. Misalnya untuk menerima input atau widget yang menampilkan status aplikasi.
+- [x] Memiliki minimal 2 (dua) halaman dan menerapkan Navigation.
+- [x] Tema aplikasi yang dikirimkan bebas namun semakin detail dan lengkap aplikasi Anda maka nilai submission bisa lebih tinggi.
+
+## Tampilan Aplikasi
+<p align="center">
+  <img src="./demo/apps demo.gif" width="40%" alt="ss 1">
+</p>
 
 ## Getting Started
 
