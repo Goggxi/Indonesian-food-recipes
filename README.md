@@ -11,9 +11,12 @@ Repository ini berisi source code submission (FINAL).
 - [x] Memiliki minimal 2 (dua) halaman dan menerapkan Navigation.
 - [x] Tema aplikasi yang dikirimkan bebas namun semakin detail dan lengkap aplikasi Anda maka nilai submission bisa lebih tinggi.
 
+## Resource
+Aplikasi Ini Mengonsumsi API Dari [__Masak Apa__](https://github.com/tomorisakura/unofficial-masakapahariini-api)
+
 ## Tampilan Aplikasi
-<p align="center">
-  <img src="./demo/apps demo.gif" width="40%" alt="ss 1">
+<p align="left">
+  <img src="./demo/apps demo.gif" width="300px" alt="ss 1">
 </p>
 
 ## Getting Started
