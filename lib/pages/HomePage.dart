@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:indonesian_food_recipes/model/RecipesModel.dart';
+import 'package:indonesian_food_recipes/pages/DetailRecipesPage.dart';
 import 'package:indonesian_food_recipes/widget/itemRecipes.dart';
 
 class HomePage extends StatefulWidget {
@@ -60,7 +61,14 @@ class _HomePageState extends State<HomePage> {
                           itemRecipe.dificulty,
                           itemRecipe.times,
                           itemRecipe.thumb
-                      )
+                      ),
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    DetailRecipesPage(keyRecipes: itemRecipe.key)));
+                      },
                     );
                   }
               );
@@ -70,31 +78,8 @@ class _HomePageState extends State<HomePage> {
               );
             }
           },
-        )
+        ),
       ),
     );
   }
 }
-
-
-// class HomePage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       theme: ThemeData(
-//         primarySwatch: Colors.deepOrange,
-//         visualDensity: VisualDensity.adaptivePlatformDensity,
-//       ),
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: Text('Indonesian Food Recipes'),
-//         ),
-//         body: Container(
-//           child: Center(
-//             child: Text("Home Page"),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
