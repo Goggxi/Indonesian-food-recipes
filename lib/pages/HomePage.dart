@@ -18,14 +18,13 @@ class _HomePageState extends State<HomePage> {
     String url = 'https://masak-apa.tomorisakura.vercel.app/api/recipes';
 
     var response = await http.get(url);
+
     if(response.statusCode == 200){
       Map json = jsonDecode(response.body);
       RecipesModel dataRecipes = RecipesModel.fromJson(json);
-
       dataRecipes.results.forEach((element) {
         data.add(element);
       });
-
       return data;
     } else {
       throw Exception('filed to load data');
